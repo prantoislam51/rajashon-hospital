@@ -24,3 +24,13 @@ Object.assign(u, {
   asub:{en:'Pick a doctor, choose a green day and send your request.',bn:'ডাক্তার বেছে সবুজ দিনটি নির্বাচন করুন এবং অনুরোধ পাঠান।'},
   csub2:{en:'Need a serial? Use the appointment page.',bn:'সিরিয়াল লাগলে অ্যাপয়েন্টমেন্ট পেজে যান।'},
 });
+Object.assign(u, {
+  tests:{en:'Tests & prices',bn:'টেস্ট ও মূল্য'}, tsub:{en:'See which tests we do and what they cost before you come.',bn:'আসার আগে দেখে নিন কোন কোন টেস্ট হয় এবং মূল্য কত।'},
+  search:{en:'Search a test',bn:'টেস্ট খুঁজুন'}, callp:{en:'Call for price',bn:'মূল্য জানতে কল করুন'}, nores:{en:'No test found.',bn:'কোনো টেস্ট পাওয়া যায়নি।'},
+  tnote:{en:'Prices are in taka (৳) and may change. Please confirm by phone before visiting.',bn:'মূল্য টাকায় (৳) দেওয়া এবং পরিবর্তন হতে পারে। আসার আগে ফোনে নিশ্চিত হয়ে নিন।'}, tname:{en:'Test',bn:'টেস্ট'}, tprice:{en:'Price',bn:'মূল্য'},
+});
+Object.assign(u, {
+  tt:{en:'Type',bn:'ধরন'}, trep:{en:'Report',bn:'রিপোর্ট'}, tprep:{en:'Preparation',bn:'প্রস্তুতি'},
+  demoN:{en:'Demo prices and times are shown. Replace them with real data before launch.',bn:'ডেমো মূল্য ও সময় দেখানো হচ্ছে। চালুর আগে আসল তথ্য দিন।'},
+});
+Object.assign(u, { allc:{en:'All categories',bn:'সব ক্যাটাগরি'}, cat:{en:'Category',bn:'ক্যাটাগরি'} });

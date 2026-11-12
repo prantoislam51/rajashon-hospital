@@ -45,4 +45,37 @@ export const site = {
     { en: 'Ultrasonography reports', bn: 'আল্ট্রাসনোগ্রাফি রিপোর্ট' },
     { en: 'ECG reports', bn: 'ইসিজি রিপোর্ট' },
   ],
+  // TESTS & PRICES. DEMO DATA: replace with your real tests, prices (taka) and times.
+  // price: null shows "Call for price". Set testsDemo to false to hide the "demo" notice on the page.
+  testsDemo: true,
+  // Groups and categories for the tests filter. Add as many as you need; empty categories stay hidden.
+  testGroups: {
+    path: { en: 'Pathology', bn: 'প্যাথলজি' },
+    img: { en: 'Imaging & scans', bn: 'ইমেজিং ও স্ক্যান' },
+    heart: { en: 'Heart', bn: 'হার্ট' },
+  },
+  testCats: {
+    blood: { g: 'path', en: 'Blood', bn: 'রক্ত' },
+    diabetes: { g: 'path', en: 'Diabetes', bn: 'ডায়াবেটিস' },
+    lipid: { g: 'path', en: 'Cholesterol & lipid', bn: 'কোলেস্টেরল ও লিপিড' },
+    liver: { g: 'path', en: 'Liver', bn: 'লিভার' },
+    kidney: { g: 'path', en: 'Kidney', bn: 'কিডনি' },
+    thyroid: { g: 'path', en: 'Thyroid & hormone', bn: 'থাইরয়েড ও হরমোন' },
+    urine: { g: 'path', en: 'Urine & stool', bn: 'প্রস্রাব ও পায়খানা' },
+    chest: { g: 'img', en: 'Chest', bn: 'বুক' },
+    abdomen: { g: 'img', en: 'Abdomen', bn: 'পেট' },
+    head: { g: 'img', en: 'Head & brain', bn: 'মাথা ও মস্তিষ্ক' },
+    bone: { g: 'img', en: 'Bones & joints', bn: 'হাড় ও জোড়া' },
+    cardiac: { g: 'heart', en: 'Heart tests', bn: 'হার্টের পরীক্ষা' },
+  },
+  tests: [
+    { cat: 'blood', en: 'CBC', bn: 'সিবিসি (CBC)', price: 400, report: { en: 'Same day', bn: 'একই দিন' }, prep: { en: 'No preparation needed', bn: 'প্রস্তুতি লাগে না' } },
+    { cat: 'urine', en: 'Urine R/E', bn: 'ইউরিন আর/ই', price: 200, report: { en: 'Same day', bn: 'একই দিন' }, prep: { en: 'First morning urine preferred', bn: 'সকালের প্রথম প্রস্রাব ভালো' } },
+    { cat: 'diabetes', en: 'Blood sugar (fasting)', bn: 'ব্লাড সুগার (ফাস্টিং)', price: 120, report: { en: '1 hour', bn: '১ ঘণ্টা' }, prep: { en: '8–12 hours fasting', bn: '৮–১২ ঘণ্টা খালি পেটে' } },
+    { cat: 'diabetes', en: 'HbA1c', bn: 'এইচবিএ১সি (HbA1c)', price: 900, report: { en: 'Same day', bn: 'একই দিন' }, prep: { en: 'No preparation needed', bn: 'প্রস্তুতি লাগে না' } },
+    { cat: 'lipid', en: 'Lipid profile', bn: 'লিপিড প্রোফাইল', price: 1000, report: { en: 'Same day', bn: 'একই দিন' }, prep: { en: '10–12 hours fasting', bn: '১০–১২ ঘণ্টা খালি পেটে' } },
+    { cat: 'chest', en: 'X-Ray chest', bn: 'বুকের এক্স-রে', price: 600, report: { en: '30 minutes', bn: '৩০ মিনিট' }, prep: { en: 'Remove metal items', bn: 'ধাতব জিনিস খুলে রাখুন' } },
+    { cat: 'abdomen', en: 'USG whole abdomen', bn: 'আল্ট্রাসনোগ্রাফি (সম্পূর্ণ পেট)', price: 900, report: { en: 'Same day', bn: 'একই দিন' }, prep: { en: 'Full bladder, as advised', bn: 'পূর্ণ মূত্রথলি, নির্দেশমতো' } },
+    { cat: 'cardiac', en: 'ECG', bn: 'ইসিজি', price: 300, report: { en: 'Immediately', bn: 'তাৎক্ষণিক' }, prep: { en: 'No preparation needed', bn: 'প্রস্তুতি লাগে না' } },
+  ],
 };
