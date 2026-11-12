@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import L from '../components/L.astro';
+import DoctorCard from '../components/DoctorCard.astro';
+import { site as s } from '../data/site.js';
+import { days, u } from '../lib/i18n.js';
+---
+<Layout title={u.topdoc} sub={u.dsub}>
+<section><div class="wrap">
+  <div class="tabs" id="tabs"><button type="button" data-i="-1" class="on"><L k="all" /></button>{days.map((x,i) => <button type="button" data-i={i}><L o={x} /></button>)}</div>
+  <div class="dgrid">{s.doctors.map(d => <DoctorCard d={d} i={s.doctors.indexOf(d)} />)}</div>
+  <p class="dn" id="dn" hidden><L k="none" /></p>
+</div></section>
+</Layout>
+<script is:inline>
+(function(){var tabs=[].slice.call(document.querySelectorAll('#tabs button')),cards=[].slice.call(document.querySelectorAll('.dcard'));
+function f(i){var n=0;tabs.forEach(function(b){b.classList.toggle('on',+b.dataset.i===i)});
+cards.forEach(function(c){var ok=i<0||c.dataset.d.split(',').indexOf(String(i))>-1;c.hidden=!ok;if(ok)n++});document.getElementById('dn').hidden=n>0}
+tabs.forEach(function(b){b.addEventListener('click',function(){f(+b.dataset.i)})})})();
+</script>

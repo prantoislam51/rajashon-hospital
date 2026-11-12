@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import L from '../components/L.astro';
+import { site as s } from '../data/site.js';
+import { u, tel } from '../lib/i18n.js';
+---
+<Layout title={u.contact} sub={u.csub}>
+<section><div class="wrap"><div class="ci">
+  <div><b><L k="serial" /></b>{s.phones.map(p => <a href={tel(p)}>{p}<br/></a>)}</div>
+  <div><b><L k="mail" /></b><a href={`mailto:${s.email}`}>{s.email}</a></div>
+  <div><b><L k="addr" /></b><L o={s.address} /></div>
+  <div class="row"><a class="btn main" href="/appointment"><L k="book" /></a><a class="btn" target="_blank" rel="noopener" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.mapQuery)}`}><L k="map" /></a></div>
+</div></div></section>
+</Layout>

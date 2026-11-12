@@ -1,0 +1,5 @@
+node_modules/
+.astro/
+.vite/
+dist/
+.DS_Store

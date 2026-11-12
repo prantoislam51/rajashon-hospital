@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import L from '../components/L.astro';
+import { site as s } from '../data/site.js';
+import { img } from '../lib/i18n.js';
+---
+<Layout title={{en:'About us',bn:'আমাদের পরিচিতি'}} sub={s.name}>
+<section class="about"><div class="wrap">
+  <div class="photo" style={img(s.about.img)} role="img" aria-label="Hospital building"></div>
+  <div><h2><L o={s.about.title} /></h2><p><L o={s.about.text} /></p>
+    <ul class="ticks">{s.about.points.map(p => <li><L o={p} /></li>)}</ul>
+    <dl class="k" style="margin-top:20px"><dt><L k="addr" /></dt><dd><L o={s.address} /></dd><dt><L k="mail" /></dt><dd>{s.email}</dd></dl></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2><L k="inside" /></h2>
+  <div class="scards">{s.services.map((x,i) => <div class="scard"><div class="sph" style={img(`service-${i+1}.jpg`)} role="img" aria-label={x.en}></div><h3><L o={x} /></h3></div>)}</div></div></section>
+</Layout>

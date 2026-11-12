@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import L from '../components/L.astro';
+import { site as s } from '../data/site.js';
+import { img, u } from '../lib/i18n.js';
+---
+<Layout title={u.svc} sub={u.ssub}>
+<section><div class="wrap"><div class="scards">{s.services.map((x,i) => <div class="scard"><div class="sph" style={img(`service-${i+1}.jpg`)} role="img" aria-label={x.en}></div><h3><L o={x} /></h3></div>)}</div>
+<p class="more"><a class="btn main" href="/appointment"><L k="book" /></a></p></div></section>
+</Layout>

@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import L from '../components/L.astro';
+import { site as s } from '../data/site.js';
+import { u, tel } from '../lib/i18n.js';
+---
+<Layout title={u.rep} sub={u.rsub}>
+<section><div class="wrap"><ul class="rl">{s.reports.map(r => <li><L o={r} />{r.time && <em><L o={r.time} /></em>}</li>)}</ul>
+<p class="more"><a class="btn red" href={tel(s.phones[0])}><L k="serial" />: {s.phones[0]}</a></p></div></section>
+</Layout>

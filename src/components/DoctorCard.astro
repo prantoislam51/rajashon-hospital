@@ -1,0 +1,25 @@
+---
+import L from './L.astro';
+import { img, days } from '../lib/i18n.js';
+const { d, i } = Astro.props;
+const full = `background-image:url(/images/${d.img.replace('.jpg','-full.jpg')}),url(/images/${d.img}),linear-gradient(135deg,#0b5d3b,#083b2a)`;
+---
+<article class="dcard" data-m={`m${i}`} data-d={d.d.join(',')}>
+  <div class="dph" style={img(d.img)} role="img" aria-label={d.name.en}></div>
+  <div class="dbody">
+    <h3><L o={d.name} /></h3><span class="sp"><L o={d.specialty} /></span>
+    <div class="mini">{days.map((x,k) => <span class={d.d.includes(k)?'on':''}><L o={x} /></span>)}</div>
+    <a class="btn main" href={`/appointment?doctor=${i}`}><L k="book" /></a>
+    <button type="button" class="lnk"><L k="det" /></button>
+  </div>
+</article>
+<dialog class="dmod" id={`m${i}`}><div class="dm">
+  <div class="dmp" style={full} role="img" aria-label={d.name.en}></div>
+  <div class="dmi"><button type="button" class="x" data-close aria-label="Close">×</button>
+    <h2><L o={d.name} /></h2><span class="sp"><L o={d.specialty} /></span>
+    <span class="lb"><L k="deg" /></span><div><L o={d.degrees} />{d.bmdc && <div><L k="bmdc" />: {d.bmdc}</div>}</div>
+    <span class="lb"><L k="cdays" /></span><div class="mini big">{days.map((x,k) => <span class={d.d.includes(k)?'on':''}><L o={x} /></span>)}</div>
+    <span class="lb"><L k="tm" /></span><div><L o={d.time} /></div>
+    <a class="btn main" href={`/appointment?doctor=${i}`}><L k="book" /></a>
+  </div>
+</div></dialog>

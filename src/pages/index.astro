@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import L from '../components/L.astro';
+import DoctorCard from '../components/DoctorCard.astro';
+import { site as s } from '../data/site.js';
+import { img, tel } from '../lib/i18n.js';
+---
+<Layout>
+<section class="hero" style="padding:0"><div class="wrap">
+  <div class="ht"><h1><L o={s.hero.title} /></h1><p><L o={s.hero.text} /></p>
+    <div class="row"><a class="btn main" href="/appointment"><L k="book" /></a><a class="btn red" href={tel(s.phones[0])}><L k="serial" /></a></div></div>
+  <div class="slider" id="slider">{s.slides.map((x,i) => <div class={'slide'+(i==0?' on':'')} style={img(x.img)} role="img" aria-label={x.en}><div class="cap"><L o={x} /></div></div>)}
+    <div class="dots">{s.slides.map((_,i) => <i class={i==0?'on':''}></i>)}</div></div>
+</div></section>
+<div class="quick"><div class="wrap">
+  <a href={tel(s.phones[0])}><L k="serial" /><small>{s.phones[0]}</small></a>
+  <a href="/doctors"><L k="topdoc" /><small><L k="alld" /></small></a>
+  <a href="/reports"><L k="rep" /><small><L k="reports" /></small></a>
+</div></div>
+<section class="about"><div class="wrap">
+  <div class="photo" style={img(s.about.img)} role="img" aria-label="Hospital building"></div>
+  <div><h2><L o={s.about.title} /></h2><p><L o={s.about.text} /></p><a class="btn main" href="/about"><L k="more" /></a></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><h2><L k="topdoc" /></h2>
+  <div class="dgrid">{s.doctors.slice(0,3).map(d => <DoctorCard d={d} i={s.doctors.indexOf(d)} />)}</div>
+  <p class="more"><a class="btn" href="/doctors"><L k="alld" /></a></p></div></section>
+<section class="rep"><div class="wrap"><h2><L k="svc" /></h2>
+  <div class="sg">{s.services.map(x => <div class="svc"><L o={x} /></div>)}</div>
+  <p class="more"><a class="btn" href="/services"><L k="alls" /></a></p></div></section>
+<section><div class="wrap"><h2><L k="contact" /></h2><div class="ci">
+  <div><b><L k="serial" /></b>{s.phones.map(p => <a href={tel(p)}>{p}<br/></a>)}</div>
+  <div><b><L k="addr" /></b><L o={s.address} /></div>
+  <a class="btn main" href="/contact" style="justify-self:start"><L k="contact" /></a></div></div></section>
+</Layout>
+<script is:inline>
+(function(){var sl=[].slice.call(document.querySelectorAll('.slide')),dt=[].slice.call(document.querySelectorAll('.dots i')),k=0,tm;
+function go(n){sl[k].classList.remove('on');dt[k].classList.remove('on');k=(n+sl.length)%sl.length;sl[k].classList.add('on');dt[k].classList.add('on')}
+dt.forEach(function(e,i){e.addEventListener('click',function(){go(i)})});
+function run(){if(!matchMedia('(prefers-reduced-motion:reduce)').matches)tm=setInterval(function(){go(k+1)},4500)}
+var s=document.getElementById('slider');run();s.addEventListener('mouseenter',function(){clearInterval(tm)});s.addEventListener('mouseleave',run)})();
+</script>
